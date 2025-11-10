@@ -95,7 +95,7 @@ OpenFile::OpenFile(std::string path)      // Constructor for graph loading
         else                    namestart=0;
         int nameend=OpenPath.Length();
         OpenName = OpenPath.Mid(namestart,nameend-4-namestart); // remove extension
-        OpenName+=_('\0');
+        OpenName+=_("\0");
         OpenGraph=new SP_Graph(0,0);
         if (file.fail())
                 {
@@ -736,7 +736,7 @@ void OpenFile::Save(std::string filenam)   // Save .SEV (or .SCR) graphic
         namestart++;
         int nameend=s2ws(filenam).Length();
         OpenName = s2ws(filenam).Mid(namestart,nameend-4-namestart); // remove extension
-        OpenName+= _('\0');
+        OpenName+= _("\0");
         flagsure = 0;
         }
 
@@ -1652,7 +1652,7 @@ void	OpenFile::SaveC(std::string filenam,int opts,int p0,int p1,int p2,int p3,in
         int alreadyinline=0;
 
         cfile << "unsigned char "<<ws2s(OpenName)<<"["<<sais+2*z88dk<<"] = {"<<std::endl;
-        // Meter código z88dk
+        // Meter cï¿½digo z88dk
         if (z88dk==1)
         	{
         	cfile<<std::setw(3)<<OpenGraph->GetSizeY()<<", "<<std::setw(3)<<OpenGraph->GetSizeX()%256<<", "<<std::endl;

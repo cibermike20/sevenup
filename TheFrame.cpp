@@ -1320,7 +1320,7 @@ void TheFrame::FileRename(wxCommandEvent &event)
         rename.CentreOnParent();
         if (rename.ShowModal() == wxID_OK)
                 {
-                Current->OpenName=rename.GetValue()+_('\0');
+                Current->OpenName=rename.GetValue()+_("\0");
                 Current->OpenPath=_("");
                 SetTit();
                 }

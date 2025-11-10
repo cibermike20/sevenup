@@ -29,7 +29,7 @@ UNICODE = 0
 BUILD = release
 
 # The wxWindows library main directory 
-WXWIN = D:\COMUN\WX
+WXWIN = C:\Users\ultra\Desktop\dev\repos\sevenup\wx\wx262
 
 
 
@@ -94,7 +94,8 @@ clean:
 	-if exist SevenuP.exe del SevenuP.exe
 
 SevenuP.exe: $(SEVENUP_OBJECTS) SevenuP_SevenuP_rc.o
-	$(CXX) -o $@ $(SEVENUP_OBJECTS) $(LDFLAGS) -mthreads $(__DEBUGINFO) -L$(WXWIN)\lib\gcc_lib -Wl,--subsystem,windows -mwindows
+	# $(CXX) -o $@ $(SEVENUP_OBJECTS) $(LDFLAGS) -mthreads $(__DEBUGINFO) -L$(WXWIN)\lib\gcc_lib -Wl,--subsystem,windows -mwindows
+	$(CXX) -o $@ $(SEVENUP_OBJECTS) $(LDFLAGS) -static -static-libgcc -static-libstdc++ -mthreads $(__DEBUGINFO) -L$(WXWIN)\lib\gcc_lib -Wl,--subsystem,windows -mwindows
 
 SevenuP_OpenFile.o: ./OpenFile.cpp
 	$(CXX) -c -o $@ $(SEVENUP_CXXFLAGS) $<
